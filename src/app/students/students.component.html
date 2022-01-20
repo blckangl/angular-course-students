@@ -1,15 +1,7 @@
-<app-success *ngIf="addedWithSuccess"></app-success>
-<app-warning  *ngIf="!addedWithSuccess"></app-warning>
+<app-success *ngIf="showAlert && addedWithSuccess" ></app-success>
+<app-warning *ngIf="showAlert && !addedWithSuccess"></app-warning>
 
 <p>nb students {{students.length}}</p>
 
-<div class="input-container">
-  <input [(ngModel)]="studentName" placeholder="studentName" [ngClass]="{'valid':isStudentNameValid(),'active':true}"  />
-  <button (click)="addStudent()" >Add Student</button>
-</div>
-<div class="student-list">
-  <div *ngFor="let student of students;let i = index" class="student">
-    {{student}} {{i}}
-  </div>
-
-</div>
+<app-student-input (onStudentAdd)="addStudent($event)"></app-student-input>
+<app-student-list [students]="students"></app-student-list>

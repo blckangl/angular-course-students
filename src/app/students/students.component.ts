@@ -11,6 +11,7 @@ export class StudentsComponent implements OnInit {
   nbStudents: number;
   addedWithSuccess = false;
 
+  showAlert: boolean = false;
   students: Array<string>;
 
   constructor() {
@@ -25,12 +26,23 @@ export class StudentsComponent implements OnInit {
 
   }
 
-  addStudent(){
-    this.students.push(this.studentName)
-    this.studentName = '';
+  addStudent(event: any) {
+    this.showAlert = true;
+    setTimeout(() => {
+      this.showAlert = false
+    }, 3000)
+    if (this.isStudentNameValid(event)) {
+      this.addedWithSuccess = true;
+      this.students.push(event)
+    } else {
+      this.addedWithSuccess = false
+    }
+
+
   }
-  isStudentNameValid(): boolean {
-    if (this.studentName.length > 0 && !this.studentName.includes('/')) {
+
+  isStudentNameValid(studentName:string): boolean {
+    if (studentName.length > 0 && !studentName.includes('/')) {
       return true;
     } else {
       return false

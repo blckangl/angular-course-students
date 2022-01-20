@@ -1,0 +1,16 @@
+
+.student-list{
+  display: flex;
+  flex-direction: column;
+  background-color: #ab47bc;
+  padding: 16px;
+  color: white;
+  margin-top: 16px;
+  border-radius: 5px;
+  .student{
+    margin-top: 8px;
+    border-bottom: 1px solid white;
+    padding: 10px;
+    font-weight: 600;
+  }
+}
