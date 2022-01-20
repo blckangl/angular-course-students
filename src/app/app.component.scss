@@ -1,0 +1,19 @@
+input{
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+}
+button{
+  width: 100%;
+  background-color: #c62828;
+  border-radius: 8px;
+  color: white;
+  padding: 10px;
+  border-color: white;
+}
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

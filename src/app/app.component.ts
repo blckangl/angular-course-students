@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sc1';
+  title: string = 'sc1';
+  userName: string;
+
+
+  constructor() {
+    this.userName = ''
+  }
+
+  resetUserName() {
+    if(this.userName.length==0){
+      return;
+    }
+    this.userName = ""
+  }
+
+  isUserNameEmpty():boolean {
+    if(this.userName.length==0){
+      return true;
+    }
+
+    return  false;
+  }
 }
